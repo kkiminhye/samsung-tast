@@ -46,6 +46,85 @@
       
     }
 
+
+    .slide.active{
+      margin: 0 auto;
+    }
+
+
+    /*슬라이드*/
+    .product-info-box {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* 내부 간격 줄이기 */
+  padding: 8px 10px; /* 패딩 줄이기 */
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 10;
+  max-width: 310px; /* ← 강제 고정 넓이로 줄이기 */
+  height: 100px;
+  width: 100%;
+  opacity: 0.89;
+  max-width: 310px
+}
+
+.product-thumbnail {
+  max-width: 90px;
+  height: auto;
+  border-radius: 4px;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;  /* ← 이거 추가 */
+  text-align: left;         /* ← 이거도 같이 추가 */
+}
+
+.product-labels {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+
+.label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #007bff;
+  border: 1.5px solid #007bff;
+  border-radius: 12px;
+  padding: 3px 8px;
+  background-color: white;
+  white-space: nowrap;
+}
+
+.label1 {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #ffffff; /* 흰색 글자 */
+  border: 1.5px solid #007bff;
+  border-radius: 12px;
+  padding: 3px 7px;
+  background-color: #007bff; /* 파란 배경 */
+  white-space: nowrap;
+}
+
+.product-name {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #000;
+  max-width: 170px;   /* ← 텍스트 줄바꿈을 유도할 너비 설정 */
+  word-break: keep-all; /* 단어 단위 줄바꿈 */
+  line-height: 1.2;
+}
+
     .container.event1 {
   position: relative;
 }
@@ -58,7 +137,7 @@
 
 .container.event1 .event1-divider {
   width: 90%;
-  margin: 20px auto;
+  margin: 30px auto;
   border-bottom: 1px solid #c6c6c6;
 }
 
@@ -254,9 +333,12 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }
 
     .slider-container {
+  margin-bottom: -10px;
   width: 90%;               /* 좌우 여백 주기 */
   max-width: 720px;         /* 최대 너비 제한 */
   margin: 0 auto;           /* 중앙 정렬 */
@@ -293,12 +375,13 @@
       bottom: 0;
       width: 100%;
       height: 40%;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+      background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
       z-index: 1;
     }
 
     .slide-text {
       position: absolute;
+      margin-bottom: 50px;
       bottom: 45px;
       left: 50%;
       transform: translateX(-50%);
@@ -361,13 +444,14 @@
     }
 
     .video-container {
+      margin-top: 10px !important;
   position: relative;
   width: 90%;              /* 좌우 여백 */
   max-width: 720px;        /* 최대 너비 제한 */
-  margin: 40px auto;       /* 중앙 정렬 + 상하 여백 */
+  margin: 0 auto;       /* 중앙 정렬 + 상하 여백 */
   aspect-ratio: 16/9;      /* 비율 유지 (브라우저 지원 시) */
   overflow: hidden;
-  border-radius: 16px;
+  border-radius: 12px;
 }
 
     .video-container iframe {
@@ -381,16 +465,17 @@
       width: 100%;
       display: flex;
       justify-content: center;
+      margin-top: 25px;
     }
 
     .in_notice {
-      padding: 5% 5%;
+      padding: 7% 7%;
     }
 
     .in_notice_tit {
       font-size: 1.1rem;
       color: #fff;
-      margin-bottom: 1rem;
+      margin-bottom: 10px;
     }
 
     .in_desc_area {
@@ -466,7 +551,7 @@
   letter-spacing: -0.02em;
   color: #2e6ff2;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .tit3 {
@@ -539,8 +624,15 @@
 /* 모바일 최적화용 추가 스타일 */
 @media (max-width: 480px) {
 
+  .highlight {
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
+
 .hero-text{
-  top: 19%;
+  top: 18%;
 }
 
 .hero-text .tit1 {
@@ -556,6 +648,11 @@
   padding: 5px 15px; 
 }
 
+.images {
+      margin-bottom: 24px;
+      margin-bottom: 24px;
+    }
+
 .title {
   font-size: 1.2rem;
 }
@@ -564,9 +661,14 @@
   font-size: 1.2rem;
 }
 
-.subtitle,
-.subtitle2 {
+.subtitle{
   font-size: 0.9rem;
+  line-height: 1.3;
+  margin-top: 3px;
+}
+
+.subtitle2 {
+  font-size: 0.8rem;
   line-height: 1.3;
   margin-top: 3px;
 }
@@ -579,9 +681,13 @@
   max-width: 70px;
 }
 
-.price-text1,
-.price-text2 {
+.price-text1{
   font-size: 1rem;
+  text-align: center;
+}
+
+.price-text2 {
+  font-size: 1.3rem;
   text-align: center;
 }
 
@@ -603,11 +709,15 @@
 }
 
 .container {
-  padding: 20px 15px 28px;
+  padding: 24px 15px 34px;
+}
+
+.container.event1{
+  padding: 24px 15px 34px;
 }
 
 .slider-container {
-  height: 500px;
+  height: 600px;
 }
 
 .slide-text {
@@ -622,13 +732,36 @@
 }
 
 .in_notice_tit {
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .in_desc {
-  font-size: 0.85rem;
+  font-size: 0.7rem;
 }
+
+.tit1 {
+  font-size: 2.3rem;
+  font-weight: bold;
+  margin-bottom: 0px;
 }
+
+.tit2 {
+  font-size: 3rem;
+  letter-spacing: -0.02em;
+  color: #2e6ff2;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.tit3 {
+  display: inline-block;  /* 블록에서 인라인블록으로 변경 */
+  padding: 6px 20px;       /* 좌우 여백 좀 주면 테두리가 텍스트에 붙지 않음 */
+  border: 1px solid #000000;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
 
 
 @media (max-width: 480px) {
@@ -663,7 +796,8 @@
   font-size: 1rem;
   font-family: 'Nanum Gothic', sans-serif;
   box-sizing: border-box;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
+}
 }
   </style>
 </head>
@@ -811,19 +945,49 @@
     <div class="slider-container">
       <div class="slide active">
         <img src="./11.gif" alt="라이프스타일 컷 1" />
-        <div class="dimmed-overlay"></div>
-        <div class="slide-text">식재료 관리는 더 <strong>스마트하게!</strong></div>
+        <div class="product-info-box">
+          <img src="./03.webp" alt="제품 썸네일" class="product-thumbnail">
+          <div class="product-details">
+            <div class="product-labels">
+              <span class="label1">전지현 PICK</span>
+              <span class="label">똑똑한</span>
+              <span class="label">관리법</span>
+            </div>
+            <div class="product-name">Bespoke AI 냉장고 4도어 키친핏 Max 640L</div>
+          </div>
+        </div>
       </div>
+
       <div class="slide">
         <img src="./22.gif" alt="라이프스타일 컷 2" />
-        <div class="dimmed-overlay"></div>
-        <div class="slide-text">바쁜 나에게 딱 맞는 <strong>'도움이'</strong></div>
+        <div class="product-info-box">
+          <img src="./01.webp" alt="제품 썸네일" class="product-thumbnail">
+          <div class="product-details">
+            <div class="product-labels">
+              <span class="label1">한가인 PICK</span>
+              <span class="label">올인원</span>
+              <span class="label">한번에</span>
+            </div>
+            <div class="product-name">Bespoke AI 콤보 25/18kg</div>
+          </div>
+        </div>
       </div>
+
       <div class="slide">
         <img src="./33.gif" alt="라이프스타일 컷 3" />
-        <div class="dimmed-overlay"></div>
-        <div class="slide-text">어떤 환경에서도 <strong>일정하게</strong></div>
+        <div class="product-info-box">
+          <img src="./02.webp" alt="제품 썸네일" class="product-thumbnail">
+          <div class="product-details">
+            <div class="product-labels">
+              <span class="label1">김연아 PICK</span>
+              <span class="label">장마철</span>
+              <span class="label">쾌적한</span>
+            </div>
+            <div class="product-name">Bespoke AI 무풍콤보 갤러리 청정 58.5/18.7㎡</div>
+          </div>
+        </div>
       </div>
+
       <div class="dots">
         <span class="dot active" onclick="goToSlide(0)"></span>
         <span class="dot" onclick="goToSlide(1)"></span>
